@@ -1,0 +1,7 @@
+local/
+cache/
+nvim/workspace/
+nvim/pack/
+mpv/
+qBittorrent/
+
