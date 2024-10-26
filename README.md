@@ -1,8 +1,8 @@
 ### Installations
 ##### Install Homebrew 
 * https://brew.sh/
-##### Install neovim
-* brew install Neovim
+##### Install Neovim
+* brew install neovim
 ##### Install Wezterm and zsh (if not already the default shell)
 * brew install --cask wezterm
 ##### Install tmux
