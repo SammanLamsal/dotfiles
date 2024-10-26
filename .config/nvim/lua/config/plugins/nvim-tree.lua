@@ -23,8 +23,6 @@ return {
         vim.keymap.set("n", "<leader>ec", "<cmd>NvimTreeCollapse<CR>", { desc = "Collapse file explorer" }) -- collapse file explorer
         vim.keymap.set("n", "<leader>er", "<cmd>NvimTreeRefresh<CR>", { desc = "Refresh file explorer" }) -- refresh file explorer
 
-        vim.cmd([[
-            :hi NvimTreeNormal guibg=NONE ctermbg=NONE
-        ]])
+        vim.cmd('highlight NvimTreeNormal guibg=NONE ctermbg=NONE')
     end,
 }
