@@ -1,4 +1,4 @@
--- return {
+return {
 --     "nvim-tree/nvim-tree.lua",
 --     config = function()
 --         require("nvim-tree").setup({
@@ -25,4 +25,4 @@
 --
 --         vim.cmd('highlight NvimTreeNormal guibg=NONE ctermbg=NONE')
 --     end,
--- }
+}
