@@ -13,7 +13,7 @@ if wezterm.config_builder then
 end
 
 if wezterm.target_triple == "aarch64-apple-darwin" then
-	config.default_domain = "DefaultDomain"
+	config.default_domain = "local"
     config.font_size = 16
 else
 	config.default_domain = "WSL:Ubuntu"
