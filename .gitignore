@@ -4,4 +4,4 @@
 .config/nvim/pack/
 .config/mpv/
 .config/qBittorrent/
-
+.config/nvim/lazy-lock.json

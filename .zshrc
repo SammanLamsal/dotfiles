@@ -28,8 +28,8 @@ zstyle ':completion:*' verbose true
 zstyle ':completion:*:*:kill:*:processes' list-colors '=(#b) #([0-9]#)*=0=01;31'
 zstyle ':completion:*:kill:*' command 'ps -u $USER -o pid,%cpu,tty,cputime,cmd'
 
-if [ -f "$HOME/.dotfiles/env_vars.sh" ]; then
-    . "$HOME/.dotfiles/env_vars.sh"
+if [ -f "$HOME/env_vars.sh" ]; then
+    . "$HOME/env_vars.sh"
 fi
 
 eval "$(starship init zsh)"

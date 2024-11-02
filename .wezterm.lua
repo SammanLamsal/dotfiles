@@ -7,6 +7,7 @@ config.wsl_domains = {
         distribution = "Ubuntu"
     },
 }
+
 if wezterm.config_builder then
     config = wezterm.config_builder()
 end
@@ -42,4 +43,4 @@ config.window_close_confirmation = 'NeverPrompt'
 config.enable_tab_bar = false
 --config.harfbuzz_features = { 'calt=0', 'clig=0', 'liga=0' }
 
-return config
+return configeturn config
