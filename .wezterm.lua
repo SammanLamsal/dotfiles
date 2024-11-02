@@ -12,7 +12,11 @@ if wezterm.config_builder then
     config = wezterm.config_builder()
 end
 
-config.default_domain = "WSL:Ubuntu"
+if wezterm.target_triple == "aarch64-apple-darwin" then
+	config.default_domain = "DefaultDomain"
+else
+	config.default_domain = "WSL:Ubuntu"
+end
 
 config.color_scheme = "Catppuccin Mocha"
 config.window_background_opacity = 0.9
@@ -43,4 +47,5 @@ config.window_close_confirmation = 'NeverPrompt'
 config.enable_tab_bar = false
 --config.harfbuzz_features = { 'calt=0', 'clig=0', 'liga=0' }
 
-return configeturn config
+return config
+eturn configeturn config
