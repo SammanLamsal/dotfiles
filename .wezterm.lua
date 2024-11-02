@@ -14,8 +14,10 @@ end
 
 if wezterm.target_triple == "aarch64-apple-darwin" then
 	config.default_domain = "DefaultDomain"
+    config.font_size = 16
 else
 	config.default_domain = "WSL:Ubuntu"
+    config.font_size = 11
 end
 
 config.color_scheme = "Catppuccin Mocha"
@@ -42,10 +44,8 @@ config.keys = {
         end),
     }
 }
-config.font_size = 11
 config.window_close_confirmation = 'NeverPrompt'
 config.enable_tab_bar = false
 --config.harfbuzz_features = { 'calt=0', 'clig=0', 'liga=0' }
 
 return config
-eturn configeturn config
