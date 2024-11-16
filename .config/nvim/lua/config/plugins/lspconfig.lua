@@ -8,6 +8,7 @@ return {
             lspconfig.lua_ls.setup({capabilities = capabilities})
             lspconfig.pyright.setup({capabilities = capabilities})
             lspconfig.marksman.setup({capabilities = capabilities})
+            lspconfig.clangd.setup({capabilities = capabilities})
         end,
     }
 }
