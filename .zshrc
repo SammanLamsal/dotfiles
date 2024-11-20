@@ -35,3 +35,4 @@ fi
 eval "$(starship init zsh)"
 export EDITOR="nvim"
 export VISUAL="$EDITOR"
+export MANPAGER="nvim +Man!"
