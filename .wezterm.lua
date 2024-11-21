@@ -16,6 +16,7 @@ if wezterm.target_triple == "aarch64-apple-darwin" then
 	config.default_domain = "local"
     config.font_size = 16
 else
+	config.default_prog = { 'powershell.exe' }
     config.font_size = 11
 end
 
