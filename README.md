@@ -11,9 +11,11 @@
 * brew install starship
 ##### Install npm
 * brew install node
+##### Install other tools
+* install zoxide
+* install yazi
 ### Fetch this GitHub Repo
-* For Java development, use the correct branch (WSL or Mac) to download the ftplugin directory for nvim jdtls
-* Also use the correct branch to download the .wezterm.lua config file
+* For Java development, make sure the ftplugin directory path for nvim jdtls is correct
 ### LSPs and Linters
 * Install the language servers specified in ~/.dotfiles/.config/nvim/lua/config/plugins/lspconfig.lua
 * Install the linters specified in ~/.dotfiles/.config/nvim/lua/config/plugins/nvim-lint.lua
