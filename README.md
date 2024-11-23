@@ -12,8 +12,8 @@
 ##### Install npm
 * brew install node
 ##### Install other tools
-* install zoxide
-* install yazi
+* install yazi (zoxide is bundled)
+* install fzf
 ### Fetch this GitHub Repo
 * For Java development, make sure the ftplugin directory path for nvim jdtls is correct
 ### LSPs and Linters
