@@ -33,6 +33,7 @@ if [ -f "$HOME/env_vars.sh" ]; then
 fi
 
 eval "$(starship init zsh)"
+eval "$(zoxide init --cmd cd zsh)"
 export EDITOR="nvim"
 export VISUAL="$EDITOR"
 export MANPAGER="nvim +Man!"
