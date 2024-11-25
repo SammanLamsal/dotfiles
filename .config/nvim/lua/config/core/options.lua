@@ -22,7 +22,7 @@ vim.opt.backspace = "indent,eol,start"
 
 vim.opt.clipboard = "unnamedplus"
 
-vim.opt.scrolloff = 999
+-- vim.opt.scrolloff = 999
 
 vim.opt.virtualedit = "block"
 
