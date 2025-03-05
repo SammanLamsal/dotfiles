@@ -32,6 +32,8 @@ if [ -f "$HOME/env_vars.sh" ]; then
     . "$HOME/env_vars.sh"
 fi
 
+alias vim=nvim
+
 eval "$(starship init zsh)"
 eval "$(zoxide init --cmd cd zsh)"
 export EDITOR="nvim"
