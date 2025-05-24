@@ -28,4 +28,3 @@
 * If markdown preview isn't working, try :call mkdp#util#install()
 ### Mac Specific
 * Download Rectangle for window snapping
-* Download alt-tab
