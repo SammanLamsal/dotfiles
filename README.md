@@ -15,10 +15,17 @@
 * install yazi
 * install zoxide (replaces cd command with the --cmd cd flag in .zshrc)
 * install fzf
-### Fetch this GitHub Repo
+* install and run gnu stow
+### Clone this GitHub Repo
+* Create .dotfiles directory in home folder
+    * Clone this repo in the .dotfiles directory
+    * Run gnu stow
 * For Java development, make sure the ftplugin directory path for nvim jdtls is correct
 ### LSPs and Linters
 * Install the language servers specified in ~/.dotfiles/.config/nvim/lua/config/plugins/lspconfig.lua
 * Install the linters specified in ~/.dotfiles/.config/nvim/lua/config/plugins/nvim-lint.lua
 ### Other Plugins
 * If markdown preview isn't working, try :call mkdp#util#install()
+### Mac Specific
+* Download Rectangle for window snapping
+* Download alt-tab
