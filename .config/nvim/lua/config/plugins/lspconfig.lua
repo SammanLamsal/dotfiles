@@ -23,7 +23,7 @@ return {
             local lspconfig = require("lspconfig")
 
             -- should match LSPs specified in install.sh script
-            local servers = { "lua_ls", "pyright", "marksman", "clangd", "ts_ls" }
+            local servers = { "lua_ls", "pyright", "marksman", "clangd", "ts_ls", "gopls" }
             for _, server in ipairs(servers) do
                 lspconfig[server].setup({
                     capabilities = capabilities,

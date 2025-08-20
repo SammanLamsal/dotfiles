@@ -29,6 +29,7 @@ LSPS=(
     marksman
     llvm
     typescript-language-server
+    gopls
 )
 
 # should match with the linters specified in nvim-lint plugin
