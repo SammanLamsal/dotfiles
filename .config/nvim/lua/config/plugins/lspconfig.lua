@@ -1,5 +1,8 @@
 return {
     {
+        "mfussenegger/nvim-jdtls",
+    },
+    {
         "neovim/nvim-lspconfig",
         dependencies = {
             {
@@ -23,7 +26,7 @@ return {
             local lspconfig = require("lspconfig")
 
             -- should match LSPs specified in install.sh script
-            local servers = { "lua_ls", "pyright", "marksman", "clangd", "ts_ls", "gopls" }
+            local servers = { "lua_ls", "pyright", "marksman", "clangd", "ts_ls", "gopls", "angularls", "jdtls" }
             for _, server in ipairs(servers) do
                 lspconfig[server].setup({
                     capabilities = capabilities,
