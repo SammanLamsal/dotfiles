@@ -4,17 +4,10 @@ return {
         config = function()
             require("mini.ai").setup({})
             require("mini.surround").setup({})
-            require("mini.pairs").setup({})
+            -- require("mini.pairs").setup({})
             require("mini.git").setup({})
             require("mini.diff").setup({})
             require("mini.statusline").setup({})
-            require("mini.splitjoin").setup({
-                mappings = {
-                    toggle = "<leader>sj",
-                    split = '',
-                    join = '',
-                }
-            })
         end,
     },
     {
@@ -57,7 +50,7 @@ return {
             { "<leader>fc", function() Snacks.picker.files({ cwd = vim.fn.stdpath("config") }) end, desc = "Find Config File" },
             { "<leader>fg", function() Snacks.picker.grep() end,                                    desc = "Find Grepped Word" },
             { "<leader>fk", function() Snacks.picker.keymaps({ layout = "ivy" }) end,               desc = "Find Keymap" },
-            { "<leader>fb", function() Snacks.picker.buffers() end,                                 desc = "Search Open Buffers" },
+            { "<leader>fo", function() Snacks.picker.buffers() end,                                 desc = "Search Open Buffers" },
             { "<leader>uC", function() Snacks.picker.colorschemes({ layout = "ivy" }) end,          desc = "Find Colorschemes" },
 
             { "<leader>lg", function() Snacks.lazygit() end,                                        desc = "Lazygit" },
