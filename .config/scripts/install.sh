@@ -14,12 +14,17 @@ PACKAGES=(
     lazygit
     node
     gcc
+    zathura
 )
 
 CASKS=(
     wezterm
     firefox
     font-jetbrains-mono-nerd-font
+)
+
+TAPS=(
+    homebrew-zathura/zathura
 )
 
 # should match with the servers specified in lspconfig plugin
@@ -45,6 +50,10 @@ if [[ $? != 0 ]] ; then
 else
     brew update
 fi
+
+for tap in "${TAPS[@]}"; do
+    brew tap "$tap"
+done
 
 for package in "${PACKAGES[@]}"; do
     brew install "$package"

@@ -1,0 +1,10 @@
+set pages-per-row 1 
+set first-page-column 1
+set adjust-open width
+set zoom-min 10
+
+set selection-clipboard clipboard
+
+set guioptions "s"
+
+map R reload
