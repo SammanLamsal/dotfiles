@@ -1,9 +1,7 @@
-require("config.core")
-require("config.plugin")
+vim.g.mapleader = " "
+vim.g.maplocalleader = " "
 
-vim.cmd("highlight Normal guibg=NONE ctermbg=NONE")
-vim.cmd("highlight NormalNC guibg=none ctermbg=NONE")
-vim.cmd("highlight NonText guibg=NONE ctermbg=NONE")
-vim.cmd("highlight LineNr guibg=NONE ctermbg=NONE")
-vim.cmd("highlight EndOfBuffer guibg=NONE ctermbg=NONE")
+require("config.lazy")
+require("config.opts")
+require("config.keys")
 
