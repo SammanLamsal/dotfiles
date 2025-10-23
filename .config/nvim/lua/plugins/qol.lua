@@ -5,9 +5,7 @@ return {
             require("mini.ai").setup({})
             require("mini.surround").setup({})
             -- require("mini.pairs").setup({})
-            require("mini.git").setup({})
             require("mini.diff").setup({})
-            require("mini.statusline").setup({})
         end,
     },
     {
@@ -22,7 +20,6 @@ return {
             bigfile = {},
             indent = {},
             input = {},
-            statuscolumn = {},
             quickfile = {},
             words = {},
             zen = {
