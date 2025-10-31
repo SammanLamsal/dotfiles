@@ -43,7 +43,7 @@ return {
         },
         keys = {
             { "<leader>ee", function() Snacks.explorer() end,                                       desc = "Toggle File Explorer" },
-            { "<leader>ff", function() Snacks.picker.smart() end,                                   desc = "Find Files (Snacks Picker)" },
+            { "<leader>ff", function() Snacks.picker.files() end,                                   desc = "Find Files (Snacks Picker)" },
             { "<leader>fc", function() Snacks.picker.files({ cwd = vim.fn.stdpath("config") }) end, desc = "Find Config File" },
             { "<leader>fg", function() Snacks.picker.grep() end,                                    desc = "Find Grepped Word" },
             { "<leader>fk", function() Snacks.picker.keymaps({ layout = "ivy" }) end,               desc = "Find Keymap" },
