@@ -1,0 +1,10 @@
+{
+  "layer": "top",
+  "position": "top",
+  "modules-left": ["niri/workspaces"],
+  "modules-center": ["clock"],
+  "modules-right": ["pulseaudio", "network", "battery"],
+  "pulseaudio" : {
+    "on-click": "pavucontrol"
+  }
+}
