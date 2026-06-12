@@ -6,5 +6,5 @@
   "modules-right": ["pulseaudio", "network", "battery"],
   "pulseaudio" : {
     "on-click": "pavucontrol"
-  }
+  },
 }
