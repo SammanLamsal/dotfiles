@@ -23,14 +23,14 @@ return {
         event = { "BufReadPre", "BufNewFile" },
         config = function()
             local capabilities = require("blink.cmp").get_lsp_capabilities()
-            local lspconfig = require("lspconfig")
 
             -- should match LSPs specified in install.sh script
             local servers = { "lua_ls", "pyright", "marksman", "clangd", "ts_ls", "gopls", "angularls", "jdtls" }
             for _, server in ipairs(servers) do
-                lspconfig[server].setup({
+                vim.lsp.config(server, {
                     capabilities = capabilities,
                 })
+                vim.lsp.enable(server)
             end
             -- format on save
             -- vim.api.nvim_create_autocmd('LspAttach', {
@@ -50,9 +50,13 @@ return {
             -- })
 
             -- format keymap
-            vim.keymap.set("n", "<leader>mp", function()
-                vim.lsp.buf.format({ async = true })
-            end, { buffer = 0, noremap = true, silent = true })
-        end,
+            vim.api.nvim_create_autocmd('LspAttach', {
+                callback = function(args)
+                    vim.keymap.set("n", "<leader>mp", function()
+                        vim.lsp.buf.format({ async = true })
+                    end, { buffer = args.buf, noremap = true, silent = true })
+                end,
+            })
+        end
     }
 }
