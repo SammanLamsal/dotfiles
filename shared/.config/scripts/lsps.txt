@@ -1,6 +1,0 @@
-lua-language-server
-pyright
-marksman
-llvm
-typescript-language-server
-gopls
