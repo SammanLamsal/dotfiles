@@ -24,8 +24,7 @@ return {
         config = function()
             local capabilities = require("blink.cmp").get_lsp_capabilities()
 
-            -- should match LSPs specified in install.sh script
-            local servers = { "lua_ls", "pyright", "marksman", "clangd", "ts_ls", "gopls", "angularls", "jdtls" }
+            local servers = { "lua_ls", "pyright", "marksman", "clangd", "ts_ls", "gopls", "angularls", "jdtls", "html", "cssls", "jsonls", "eslint" }
             for _, server in ipairs(servers) do
                 vim.lsp.config(server, {
                     capabilities = capabilities,

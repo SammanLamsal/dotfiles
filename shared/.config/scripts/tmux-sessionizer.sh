@@ -3,7 +3,7 @@
 if [[ $# -eq 1 ]]; then
     selected=$1
 else
-    selected=$(find ~ ~/projects/personal ~/projects/school ~/Documents/notes ~/Documents ~/dotfiles/.config -mindepth 1 -maxdepth 1 -type d | fzf)
+    selected=$(find ~/Projects ~/Projects/personal ~/Projects/school ~/Documents/notes ~/Documents ~/dotfiles/ -mindepth 1 -maxdepth 1 -type d | fzf)
 fi
 
 if [[ -z $selected ]]; then
