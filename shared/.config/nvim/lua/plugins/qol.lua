@@ -6,6 +6,7 @@ return {
             require("mini.surround").setup({})
             -- require("mini.pairs").setup({})
             require("mini.diff").setup({})
+            require("mini.cmdline").setup({})
         end,
     },
     {
@@ -45,7 +46,8 @@ return {
             { "<leader>ee", function() Snacks.explorer() end,                                       desc = "Toggle File Explorer" },
             { "<leader>ff", function() Snacks.picker.files() end,                                   desc = "Find Files (Snacks Picker)" },
             { "<leader>fc", function() Snacks.picker.files({ cwd = vim.fn.stdpath("config") }) end, desc = "Find Config File" },
-            { "<leader>fg", function() Snacks.picker.grep() end,                                    desc = "Find Grepped Word" },
+            { "<leader>fg", function() Snacks.picker.grep() end,                                    desc = "Find by Grep" },
+            { "<leader>fh", function() Snacks.picker.pick({source = "help"}) end,                   desc = "Find Help" },
             { "<leader>fk", function() Snacks.picker.keymaps({ layout = "ivy" }) end,               desc = "Find Keymap" },
             { "<leader>fo", function() Snacks.picker.buffers() end,                                 desc = "Search Open Buffers" },
             { "<leader>uC", function() Snacks.picker.colorschemes({ layout = "ivy" }) end,          desc = "Find Colorschemes" },
