@@ -55,6 +55,7 @@ cdf() {
 }
 
 alias vim="nvim"
+alias nixreb="sudo nixos-rebuild switch --flake . --impure"
 
 eval "$(starship init zsh)"
 eval "$(zoxide init --cmd cd zsh)"
