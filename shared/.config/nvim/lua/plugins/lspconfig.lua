@@ -24,13 +24,33 @@ return {
         config = function()
             local capabilities = require("blink.cmp").get_lsp_capabilities()
 
-            local servers = { "lua_ls", "pyright", "marksman", "clangd", "ts_ls", "gopls", "angularls", "jdtls", "html", "cssls", "jsonls", "eslint" }
+            local servers = {
+                "lua_ls",
+                "pyright",
+                "marksman",
+                "clangd",
+                "ts_ls",
+                "gopls",
+                "angularls",
+                "jdtls",
+                "html",
+                "cssls",
+                "jsonls",
+                "eslint",
+                "nixd",
+                "tinymist", -- typst lsp
+                "texlab"
+            }
+
             for _, server in ipairs(servers) do
-                vim.lsp.config(server, {
+                local opts = {
                     capabilities = capabilities,
-                })
+                }
+
+                vim.lsp.config(server, opts)
                 vim.lsp.enable(server)
             end
+
             -- format on save
             -- vim.api.nvim_create_autocmd('LspAttach', {
             --     callback = function(args)
