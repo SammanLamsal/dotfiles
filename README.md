@@ -1,2 +1,2 @@
-# Setup
-    1) Run ```gnu stow``` for shared and os specific directories
+#  Setup
+Run `stow <dirName>` for shared and os specific directories

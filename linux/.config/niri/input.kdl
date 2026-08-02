@@ -1,0 +1,26 @@
+input {
+    keyboard {
+        repeat-rate 50
+        repeat-delay 200
+        xkb {}
+        numlock
+    }
+
+    touchpad {
+        tap
+        natural-scroll
+    }
+
+    mouse {
+        accel-speed 0.0
+        accel-profile "flat"
+    }
+
+    focus-follows-mouse max-scroll-amount="0%"
+}
+
+gestures {
+    hot-corners {
+        off
+    }
+}

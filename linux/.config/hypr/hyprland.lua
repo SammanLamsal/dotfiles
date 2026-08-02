@@ -79,8 +79,11 @@ hl.env("HYPRCURSOR_SIZE", "24")
 -- Refer to https://wiki.hypr.land/Configuring/Basics/Variables/
 hl.config({
     general = {
+        border_size = 1,
         gaps_in = 5,
         gaps_out = 10,
+        layout = "scrolling",
+        no_focus_fallback = true
     },
 
     decoration = {
@@ -113,6 +116,14 @@ hl.config({
     },
 
 })
+
+-- no gaps when only 1 window open
+hl.workspace_rule({ workspace = "w[tv1]", gaps_out = 0, gaps_in = 0 })
+hl.workspace_rule({ workspace = "f[1]", gaps_out = 0, gaps_in = 0 })
+hl.window_rule({ match = { float = false, workspace = "w[tv1]" }, border_size = 0 })
+hl.window_rule({ match = { float = false, workspace = "w[tv1]" }, rounding = 0 })
+hl.window_rule({ match = { float = false, workspace = "f[1]" }, border_size = 0 })
+hl.window_rule({ match = { float = false, workspace = "f[1]" }, rounding = 0 })
 
 -- Default curves and animations, see https://wiki.hypr.land/Configuring/Advanced-and-Cool/Animations/
 hl.curve("easeOutQuint",   { type = "bezier", points = { {0.23, 1},    {0.32, 1}    } })
@@ -226,21 +237,25 @@ hl.animation({ leaf = "zoomFactor",    enabled = true,  speed = 7,    bezier = "
         ---------------------
 
         local mainMod = "SUPER" -- Sets "Windows" key as main modifier
-        local secondMod = "SUPER + SHIFT"
+        local windowMod = "SUPER + SHIFT" -- Used to handle individual windows (moving windows left and right)
+        local resizeMod = "SUPER + ALT"
         local hyper = "SUPER + ALT + CTRL + SHIFT"
 
         -- Example binds, see https://wiki.hypr.land/Configuring/Basics/Binds/ for more
         hl.bind(mainMod .. " + T", hl.dsp.exec_cmd(terminal))
         hl.bind(mainMod .. " + B", hl.dsp.exec_cmd(browser))
+        hl.bind(mainMod .. " + D", hl.dsp.exec_cmd("hyprshade toggle eink"))
         local closeWindowBind = hl.bind(mainMod .. " + Q", hl.dsp.window.close())
         -- closeWindowBind:set_enabled(false)
         hl.bind(hyper .. " + M", hl.dsp.exec_cmd("command -v hyprshutdown >/dev/null 2>&1 && hyprshutdown || hyprctl dispatch 'hl.dsp.exit()'"))
         hl.bind(mainMod .. " + E", hl.dsp.exec_cmd(fileManager))
-        hl.bind(mainMod .. " + V", hl.dsp.window.float({ action = "toggle" }))
+        hl.bind(mainMod .. " + F", hl.dsp.window.float({ action = "toggle" }))
         hl.bind(mainMod .. " + SPACE", hl.dsp.exec_cmd(menu .. " -show drun -show-icons"))
         hl.bind(mainMod .. " + O", hl.dsp.exec_cmd(menu .. " -show window"))
+        hl.bind(mainMod .. " + G", hl.dsp.exec_cmd("find ~/.config/hypr/shaders/ -name \"*.glsl\"" .. menu .. " | -show window"))
         hl.bind(mainMod .. " + P", hl.dsp.window.pseudo())
         hl.bind(mainMod .. " + S", hl.dsp.layout("togglesplit"))    -- dwindle only
+        hl.bind(mainMod .. " + Z", hl.dsp.window.fullscreen("toggle"))
 
         -- Move focus with mainMod + arrow keys
         hl.bind(mainMod .. " + H", hl.dsp.focus({ direction = "left" }))
@@ -248,22 +263,30 @@ hl.animation({ leaf = "zoomFactor",    enabled = true,  speed = 7,    bezier = "
         hl.bind(mainMod .. " + K", hl.dsp.focus({ direction = "up" }))
         hl.bind(mainMod .. " + J", hl.dsp.focus({ direction = "down" }))
 
+        -- Move the active window with windowMod + hjkl
+        hl.bind(windowMod .. " + H", hl.dsp.window.move({ direction = "l" }))
+        hl.bind(windowMod .. " + L", hl.dsp.window.move({ direction = "r" }))
+        hl.bind(windowMod .. " + K", hl.dsp.window.move({ direction = "u" }))
+        hl.bind(windowMod .. " + J", hl.dsp.window.move({ direction = "d" }))
+
         -- Resize windows
-        hl.bind(mainMod .. " + ALT + H", hl.dsp.window.resize({ x = -50, y = 0, relative = true }))
-        hl.bind(mainMod .. " + ALT + L", hl.dsp.window.resize({ x = 50, y = 0, relative = true }))
-        hl.bind(mainMod .. " + ALT + K", hl.dsp.window.resize({ x = 0, y = -50, relative = true }))
-        hl.bind(mainMod .. " + ALT + J", hl.dsp.window.resize({ x = 0, y = 50, relative = true }))
+        hl.bind(resizeMod .. " + H", hl.dsp.window.resize({ x = -50, y = 0, relative = true }))
+        hl.bind(resizeMod .. " + L", hl.dsp.window.resize({ x = 50, y = 0, relative = true }))
+        hl.bind(resizeMod .. " + K", hl.dsp.window.resize({ x = 0, y = -50, relative = true }))
+        hl.bind(resizeMod .. " + J", hl.dsp.window.resize({ x = 0, y = 50, relative = true }))
 
         -- Screenshot
         hl.bind("Print", hl.dsp.exec_cmd(screenshot .. " -m region --clipboard-only -z"))
+        hl.bind(windowMod .. " + P", hl.dsp.exec_cmd(screenshot .. " -m region --clipboard-only -z"))
 
         -- Switch workspaces with mainMod + [0-9]
         -- Move active window to a workspace with mainMod + SHIFT + [0-9]
         for i = 1, 10 do
             local key = i % 10 -- 10 maps to key 0
             hl.bind(mainMod .. " + " .. key,             hl.dsp.focus({ workspace = i}))
-            hl.bind(secondMod .. " + " .. key,     hl.dsp.window.move({ workspace = i }))
+            hl.bind(windowMod .. " + " .. key,     hl.dsp.window.move({ workspace = i }))
         end
+
 
         -- Scroll through existing workspaces with mainMod + scroll
         hl.bind(mainMod .. " + mouse_down", hl.dsp.focus({ workspace = "e+1" }))
