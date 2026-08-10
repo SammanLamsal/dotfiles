@@ -32,7 +32,7 @@ vim.opt.ignorecase = true
 vim.opt.smartcase = true
 
 vim.opt.backspace = "indent,eol,start"
-vim.opt.clipboard = "unnamedplus"
+-- vim.opt.clipboard = "unnamedplus"
 vim.opt.undofile = true
 vim.opt.virtualedit = "block"
 vim.opt.inccommand = "split"
