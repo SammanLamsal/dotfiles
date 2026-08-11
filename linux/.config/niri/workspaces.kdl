@@ -1,0 +1,40 @@
+workspace "browser" {
+    open-on-output "DP-2"
+}
+
+workspace "coding" {
+    open-on-output "DP-2"
+}
+
+workspace "games" {
+    open-on-output "DP-2"
+}
+
+workspace "discord" {
+    open-on-output "DP-2"
+}
+
+spawn-at-startup "firefox"
+spawn-at-startup "wezterm"
+spawn-at-startup "steam"
+spawn-at-startup "discord"
+
+window-rule {
+    match at-startup=true app-id="firefox"
+    open-on-workspace "browser"
+}
+
+window-rule {
+    match at-startup=true app-id="wezterm"
+    open-on-workspace "coding"
+}
+
+window-rule {
+    match at-startup=true app-id="steam"
+    open-on-workspace "games"
+}
+
+window-rule {
+    match at-startup=true app-id="discord"
+    open-on-workspace "discord"
+}
