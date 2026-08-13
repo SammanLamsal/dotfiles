@@ -1,0 +1,56 @@
+[bar]
+order = ["main"]
+
+[bar.default]
+position           = "top"
+enabled            = true
+auto_hide          = false
+smart_auto_hide    = false
+show_on_workspace_switch = true
+reserve_space      = true
+layer              = "top"
+
+thickness          = 30
+background_opacity = 1.0
+border             = "outline"
+border_width       = 0.0
+shadow             = false
+contact_shadow     = false
+panel_overlap      = 1
+radius             = 12
+radius_top_left    = 0
+radius_top_right   = 0
+radius_bottom_left = 0
+radius_bottom_right = 0
+concave_edge_corners = false
+margin_ends        = 0
+margin_edge        = 0
+margin_opposite_edge = 0
+padding            = 14
+widget_spacing     = 6
+hover_highlight    = true
+scale              = 1.0
+font_weight        = 500
+font_family        = ""
+
+capsule            = false
+capsule_fill       = "surface_variant"
+capsule_thickness  = 0.76
+capsule_radius     = 8.0
+capsule_opacity    = 1.0
+
+start  = ["launcher", "spacer", "taskbar"]
+center = ["workspaces"]
+end    = ["media", "spacer", "tray", "spacer", "notifications", "bluetooth", "volume", "brightness", "clock-12h", "session"]
+
+[widget.clock-12h]
+type   = "clock"
+format = "{:%-I:%M %p | %m/%d}"
+tooltip_format = "{:%A, %B %d, %Y}"
+capsule = true
+capsule_fill = "on_primary"
+
+[widget.media]
+hide_album_art = true
+hide_when_no_media = true
+color = "primary"

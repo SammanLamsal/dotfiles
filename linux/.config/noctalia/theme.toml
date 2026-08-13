@@ -1,0 +1,6 @@
+[theme]
+mode              = "dark"        # dark | light | auto
+source            = "wallpaper"     # builtin | wallpaper | community | custom
+builtin           = "Noctalia"    # bundled palette name
+wallpaper_scheme  = "m3-content"  # generator used when source = "wallpaper"
+pure_black_dark   = false         # replace dark-mode backgrounds with pure black

@@ -1,0 +1,34 @@
+[audio]
+sound_volume         = 0.5
+
+[brightness]
+enable_ddcutil     = true
+minimum_brightness = 0.0
+sync_all_monitors = false
+
+[idle]
+behavior_order = ["lock", "screen-off", "suspend"]
+pre_action_fade_seconds = 2.0
+
+[idle.behavior.lock]
+timeout = 600
+action = "lock"
+enabled = true
+
+[idle.behavior.screen-off]
+timeout = 660
+action = "screen_off"
+enabled = true
+
+[idle.behavior.suspend]
+timeout = 900
+action = "lock_and_suspend"
+enabled = true
+
+[nightlight]
+enabled              = true
+temperature_day   = 6500
+temperature_night = 4000
+
+[osd.kinds]
+media = false

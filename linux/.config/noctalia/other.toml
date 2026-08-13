@@ -1,0 +1,15 @@
+[theme.templates]
+enable_builtin_templates = false
+enable_community_templates = false
+
+[desktop_widgets]
+enabled = false
+
+[shell]
+clipboard_enabled = false
+clipboard_keep_from_closed_apps = true
+
+[location]
+custom_schedule = true
+sunset = "21:00"
+sunrise = "07:30"
