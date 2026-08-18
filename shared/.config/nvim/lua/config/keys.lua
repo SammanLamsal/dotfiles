@@ -1,7 +1,7 @@
 local opts = {noremap = true, silent = true}
 local map = vim.keymap.set
 map("n", "<leader>sd", vim.diagnostic.open_float, opts) -- show diagnostic
-map('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open Diagnostic Location list' })
+map("n", "<leader>ld", vim.diagnostic.setloclist, { desc = "List Diagnostics" })
 map("n", "<leader>of", function()
     local ft = vim.bo.filetype
 
@@ -26,6 +26,9 @@ map("n", "<leader>of", function()
     end
 
 end, { desc = "Open preview for current file" })
+
+-- get rid of highlight
+map("n", "<Esc>", "<cmd>nohlsearch<CR>")
 
 -- move highlighted lines
 map("v", "J", ":m '>+1<CR>gv=gv")
