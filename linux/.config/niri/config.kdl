@@ -11,7 +11,7 @@ binds {
     Mod+Return hotkey-overlay-title="Open a Terminal" { spawn "wezterm"; }
     Mod+Space hotkey-overlay-title="Run an Application" { spawn-sh "rofi -show drun -show-icons"; }
     Mod+B hotkey-overlay-title="Open a Browser" { spawn "firefox"; }
-    Super+E hotkey-overlay-title="Open a File Manager" { spawn "dolphin"; }
+    Super+E hotkey-overlay-title="Open a File Manager" { spawn "thunar"; }
     Super+S hotkey-overlay-title="Open Sioyek" { spawn "sioyek"; }
 
     XF86AudioRaiseVolume allow-when-locked=true { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.1+ -l 1.0"; }

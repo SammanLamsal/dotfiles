@@ -20,6 +20,6 @@ environment {
 }
 
 cursor {
-    xcursor-theme "breeze_cursors"
+    xcursor-theme "Bibata-Modern-Ice"
     xcursor-size 24
 }
