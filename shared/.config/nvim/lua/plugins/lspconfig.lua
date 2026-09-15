@@ -39,7 +39,8 @@ return {
                 "eslint",
                 "nixd",
                 "tinymist", -- typst lsp
-                "texlab"
+                "texlab",
+                "rust_analyzer"
             }
 
             for _, server in ipairs(servers) do

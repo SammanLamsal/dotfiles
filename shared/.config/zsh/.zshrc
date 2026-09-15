@@ -55,11 +55,12 @@ cdf() {
 }
 
 alias vim="nvim"
-alias nixreb="sudo nixos-rebuild switch --flake . --impure"
+alias nixrs="sudo nixos-rebuild switch --flake . --impure"
 alias nixdev="nix develop -c zsh"
 
 eval "$(starship init zsh)"
 eval "$(zoxide init --cmd cd zsh)"
+eval "$(devenv hook zsh)"
 
 export FZF_DEFAULT_OPTS='--height 40% --layout reverse --border top'
 export COLORTERM=truecolor
