@@ -37,6 +37,7 @@ return {
                 "cssls",
                 "jsonls",
                 "eslint",
+                "tailwindcss",
                 "nixd",
                 "tinymist", -- typst lsp
                 "texlab",

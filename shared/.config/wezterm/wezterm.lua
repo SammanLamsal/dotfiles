@@ -105,7 +105,7 @@ end
 
 --config.color_scheme = "Catppuccin Mocha"
 config.color_scheme = "Everforest Dark (Gogh)"
-config.window_background_opacity = 0.9
+config.window_background_opacity = 1
 config.max_fps = 240
 config.font = wezterm.font_with_fallback {
     "Maple Mono NF",

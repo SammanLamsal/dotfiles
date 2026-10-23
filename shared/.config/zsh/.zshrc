@@ -36,22 +36,10 @@ fi
 FD_OPTIONS="-H --follow --exclude .git --exclude node_modules"
 source <(fzf --zsh)
 
-ff() {
-  local file
-  file=$(eval fd $FD_OPTIONS | fzf) || return
-  [ -n "$file" ] && nvim "$file"
-}
-
 ffp() {
   local file
   file=$(eval fd $FD_OPTIONS | fzf --preview="bat --color=always {}") || return
   [ -n "$file" ] && nvim "$file"
-}
-
-cdf() {
-  local dir
-  dir=$(eval fd -t d $FD_OPTIONS | fzf) || return
-  [ -n "$dir" ] && cd "$dir"
 }
 
 alias vim="nvim"

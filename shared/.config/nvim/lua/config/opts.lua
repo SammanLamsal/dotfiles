@@ -40,6 +40,8 @@ vim.opt.mouse = "a"
 vim.opt.updatetime = 250
 vim.opt.listchars = { tab = '» ', trail = '·', nbsp = '␣' }
 
+vim.o.exrc = true
+
 -- vim.diagnostic.config({
 --     virtual_text = true
 -- })
