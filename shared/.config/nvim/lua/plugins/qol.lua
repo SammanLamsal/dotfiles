@@ -1,7 +1,8 @@
 return {
     {
-        "echasnovski/mini.nvim",
+        "nvim-mini/mini.nvim",
         config = function()
+            require("mini.icons").setup({})
             require("mini.ai").setup({})
             require("mini.surround").setup({})
             -- require("mini.pairs").setup({})
@@ -15,9 +16,6 @@ return {
         lazy = false,
         ---@type snacks.Config
         opts = {
-            -- your configuration comes here
-            -- or leave it empty to use the default settings
-            -- refer to the configuration section below
             bigfile = {},
             indent = {},
             input = {},
@@ -25,29 +23,29 @@ return {
             words = {},
             zen = {
                 toggles = {
-                    dim = false
+                    dim = false,
                 },
             },
             picker = {
-                cycle = false,
+                layout = { cycle = false },
                 sources = {
-                    files = { hidden = true }
-                }
+                    files = { hidden = true },
+                    explorer = {
+                        hidden = true,
+                        ignored = true,
+                    },
+                },
             },
             explorer = {
-                replace_netrw = true,
-                cycle = false,
-                hidden = true,
-                ignored = true,
+                replace_netrw = false, -- oil.nvim handles directory buffers
             },
-            git = {},
         },
         keys = {
             { "<leader>ee", function() Snacks.explorer() end,                                       desc = "Toggle File Explorer" },
             { "<leader>ff", function() Snacks.picker.files() end,                                   desc = "Find Files (Snacks Picker)" },
             { "<leader>fc", function() Snacks.picker.files({ cwd = vim.fn.stdpath("config") }) end, desc = "Find Config File" },
             { "<leader>fg", function() Snacks.picker.grep() end,                                    desc = "Find by Grep" },
-            { "<leader>fh", function() Snacks.picker.pick({source = "help"}) end,                   desc = "Find Help" },
+            { "<leader>fh", function() Snacks.picker.help() end,                                    desc = "Find Help" },
             { "<leader>fk", function() Snacks.picker.keymaps({ layout = "ivy" }) end,               desc = "Find Keymap" },
             { "<leader>fo", function() Snacks.picker.buffers() end,                                 desc = "Search Open Buffers" },
             { "<leader>uC", function() Snacks.picker.colorschemes({ layout = "ivy" }) end,          desc = "Find Colorschemes" },
@@ -61,18 +59,14 @@ return {
 
             { "<leader>z",  function() Snacks.zen() end,                                            desc = "Toggle Zen Mode" },
             { "<leader>Z",  function() Snacks.zen.zoom() end,                                       desc = "Toggle Zoom" },
-        }
+        },
     },
     {
-        'nmac427/guess-indent.nvim',
-        config = function() require('guess-indent').setup {} end,
+        "nmac427/guess-indent.nvim",
+        opts = {},
     },
     {
         "sphamba/smear-cursor.nvim",
         opts = {},
     },
-    {
-        "mbbill/undotree"
-    },
-
 }

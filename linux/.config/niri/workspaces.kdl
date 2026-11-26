@@ -15,7 +15,7 @@ workspace "discord" {
 }
 
 spawn-at-startup "firefox"
-spawn-at-startup "wezterm"
+spawn-at-startup "ghostty"
 spawn-at-startup "steam"
 spawn-at-startup "discord"
 

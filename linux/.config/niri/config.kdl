@@ -8,7 +8,7 @@ include "workspaces.kdl"
 binds {
     Mod+Shift+Slash { show-hotkey-overlay; }
 
-    Mod+Return hotkey-overlay-title="Open a Terminal" { spawn "wezterm"; }
+    Mod+Return hotkey-overlay-title="Open a Terminal" { spawn "ghostty"; }
     Mod+Space hotkey-overlay-title="Run an Application" { spawn-sh "rofi -show drun -show-icons"; }
     Mod+B hotkey-overlay-title="Open a Browser" { spawn "firefox"; }
     Super+E hotkey-overlay-title="Open a File Manager" { spawn "thunar"; }
@@ -157,7 +157,9 @@ binds {
     Mod+W { toggle-column-tabbed-display; }
 
     Print { screenshot; }
-    Mod+P { spawn-sh "grim -g \"$(slurp)\" - | satty -f - --copy-command wl-copy"; }
+    // Mod+P { spawn-sh "grim -g \"$(slurp)\" - | satty -f - --copy-command wl-copy"; }
+    Mod+P { spawn-sh "grim -g \"$(slurp)\" - | flatpak run org.satty.Satty -f -"; }
+ 
 
     Mod+Escape allow-inhibiting=false { toggle-keyboard-shortcuts-inhibit; }
 

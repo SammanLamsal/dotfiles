@@ -9,6 +9,9 @@ enabled = false
 clipboard_enabled = false
 clipboard_keep_from_closed_apps = true
 
+[shell.launcher]
+default_view = "all"
+
 [location]
 custom_schedule = true
 sunset = "21:00"

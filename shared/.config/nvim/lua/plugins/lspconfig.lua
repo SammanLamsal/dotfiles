@@ -1,30 +1,22 @@
 return {
     {
-        "mfussenegger/nvim-jdtls",
-    },
-    {
         "neovim/nvim-lspconfig",
         dependencies = {
             {
-                'saghen/blink.cmp',
-            },
-            {
                 "folke/lazydev.nvim",
-                ft = "lua", -- only load on lua files
+                ft = "lua",
                 opts = {
                     library = {
-                        -- See the configuration section for more details
                         -- Load luvit types when the `vim.uv` word is found
                         { path = "${3rd}/luv/library", words = { "vim%.uv" } },
                     },
                 },
-            }
+            },
         },
         event = { "BufReadPre", "BufNewFile" },
         config = function()
-            local capabilities = require("blink.cmp").get_lsp_capabilities()
-
-            local servers = {
+            -- completion capabilities are added globally by blink.cmp (vim.lsp.config("*"))
+            vim.lsp.enable({
                 "lua_ls",
                 "pyright",
                 "marksman",
@@ -41,26 +33,17 @@ return {
                 "nixd",
                 "tinymist", -- typst lsp
                 "texlab",
-                "rust_analyzer"
-            }
-
-            for _, server in ipairs(servers) do
-                local opts = {
-                    capabilities = capabilities,
-                }
-
-                vim.lsp.config(server, opts)
-                vim.lsp.enable(server)
-            end
+                "rust_analyzer",
+            })
 
             -- format on save
-            -- vim.api.nvim_create_autocmd('LspAttach', {
+            -- vim.api.nvim_create_autocmd("LspAttach", {
+            --     group = vim.api.nvim_create_augroup("lsp-format-on-save", { clear = true }),
             --     callback = function(args)
             --         local client = vim.lsp.get_client_by_id(args.data.client_id)
             --         if not client then return end
-            --         if client.supports_method('textDocument/formatting') then
-            --             -- Format the current buffer on save
-            --             vim.api.nvim_create_autocmd('BufWritePre', {
+            --         if client:supports_method("textDocument/formatting") then
+            --             vim.api.nvim_create_autocmd("BufWritePre", {
             --                 buffer = args.buf,
             --                 callback = function()
             --                     vim.lsp.buf.format({ bufnr = args.buf, id = client.id })
@@ -71,13 +54,14 @@ return {
             -- })
 
             -- format keymap
-            vim.api.nvim_create_autocmd('LspAttach', {
+            vim.api.nvim_create_autocmd("LspAttach", {
+                group = vim.api.nvim_create_augroup("lsp-keymaps", { clear = true }),
                 callback = function(args)
                     vim.keymap.set("n", "<leader>mp", function()
                         vim.lsp.buf.format({ async = true })
-                    end, { buffer = args.buf, noremap = true, silent = true })
+                    end, { buffer = args.buf, silent = true, desc = "Format buffer" })
                 end,
             })
-        end
-    }
+        end,
+    },
 }

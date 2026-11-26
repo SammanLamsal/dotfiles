@@ -2,7 +2,7 @@
 order = ["main"]
 
 [bar.default]
-position           = "top"
+position           = "bottom"
 enabled            = true
 auto_hide          = false
 smart_auto_hide    = false
@@ -12,7 +12,7 @@ layer              = "top"
 
 thickness          = 30
 background_opacity = 1.0
-border             = "outline"
+border             = "outline_variant"
 border_width       = 0.0
 shadow             = false
 contact_shadow     = false
@@ -34,14 +34,14 @@ font_weight        = 500
 font_family        = ""
 
 capsule            = false
-capsule_fill       = "surface_variant"
+capsule_fill       = "surface_container"
 capsule_thickness  = 0.76
 capsule_radius     = 8.0
 capsule_opacity    = 1.0
 
 start  = ["launcher", "spacer", "taskbar"]
 center = ["workspaces"]
-end    = ["media", "spacer", "tray", "spacer", "notifications", "bluetooth", "volume", "brightness", "clock-12h", "session"]
+end    = ["tray", "spacer", "notifications", "bluetooth", "volume", "brightness", "clock-12h", "session"]
 
 [widget.clock-12h]
 type   = "clock"

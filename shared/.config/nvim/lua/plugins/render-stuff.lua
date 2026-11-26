@@ -1,33 +1,27 @@
 return {
     {
-        'MeanderingProgrammer/render-markdown.nvim',
-        dependencies = { 'nvim-treesitter/nvim-treesitter', 'echasnovski/mini.nvim' }, -- if you use the mini.nvim suite
+        "MeanderingProgrammer/render-markdown.nvim",
+        dependencies = { "nvim-treesitter/nvim-treesitter", "nvim-mini/mini.nvim" },
         ---@module 'render-markdown'
         ---@type render.md.UserConfig
-        opts = {},
-
-        config = function()
-            require('render-markdown').setup({
-                checkbox = {
-                    enabled = true,
-                    render_modes = false,
-                    right_pad = 1,
-                    unchecked = {
-                        icon = '󰄱 ',
-                        highlight = 'RenderMarkdownUnchecked',
-                        scope_highlight = nil,
-                    },
-                    checked = {
-                        icon = '󰱒 ',
-                        highlight = 'RenderMarkdownChecked',
-                        scope_highlight = nil,
-                    },
-                    custom = {
-                        todo = { raw = '[-]', rendered = '󰥔 ', highlight = 'RenderMarkdownTodo', scope_highlight = nil },
-                    },
+        opts = {
+            checkbox = {
+                enabled = true,
+                render_modes = false,
+                right_pad = 1,
+                unchecked = {
+                    icon = "󰄱 ",
+                    highlight = "RenderMarkdownUnchecked",
                 },
-            })
-        end
+                checked = {
+                    icon = "󰱒 ",
+                    highlight = "RenderMarkdownChecked",
+                },
+                custom = {
+                    todo = { raw = "[-]", rendered = "󰥔 ", highlight = "RenderMarkdownTodo" },
+                },
+            },
+        },
     },
     {
         "iamcco/markdown-preview.nvim",
@@ -40,21 +34,20 @@ return {
     },
     {
         "lervag/vimtex",
-        lazy = false, -- we don't want to lazy load VimTeX
+        lazy = false, -- VimTeX should not be lazy loaded
         -- tag = "v2.15", -- uncomment to pin to a specific release
         init = function()
-            -- VimTeX configuration goes here, e.g.
             vim.g.vimtex_view_method = "sioyek"
-        end
+        end,
     },
     {
-        'chomosuke/typst-preview.nvim',
-        lazy = false, -- or ft = 'typst'
-        version = '1.*',
+        "chomosuke/typst-preview.nvim",
+        ft = "typst",
+        version = "1.*",
         opts = {
             dependencies_bin = {
-                tinymist = "tinymist"
-            }
+                tinymist = "tinymist",
+            },
         },
-    }
+    },
 }
